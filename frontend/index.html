@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cadastro e Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Tela de Login/Cadastro -->
+        <div class="auth-container" id="authContainer">
+            <div class="form-container">
+                <!-- Login Form -->
+                <form class="auth-form active" id="loginForm">
+                    <h2>Login</h2>
+                    <div class="form-group">
+                        <label for="loginEmail">Email:</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Senha:</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                    <p class="switch-form">
+                        Não tem conta? <a href="#" onclick="showRegister()">Cadastre-se</a>
+                    </p>
+                </form>
+
+                <!-- Register Form -->
+                <form class="auth-form" id="registerForm">
+                    <h2>Cadastro</h2>
+                    <div class="form-group">
+                        <label for="registerName">Nome:</label>
+                        <input type="text" id="registerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email:</label>
+                        <input type="email" id="registerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Senha:</label>
+                        <input type="password" id="registerPassword" required minlength="6">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    <p class="switch-form">
+                        Já tem conta? <a href="#" onclick="showLogin()">Fazer Login</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dashboard (Após Login) -->
+        <div class="dashboard hidden" id="dashboard">
+            <div class="header">
+                <h2>Bem-vindo, <span id="userName"></span>!</h2>
+                <button class="btn btn-secondary" onclick="logout()">Sair</button>
+            </div>
+            <div class="user-info">
+                <p><strong>Email:</strong> <span id="userEmail"></span></p>
+                <p><strong>Token:</strong> <span id="userToken"></span></p>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading hidden" id="loading">
+            <div class="spinner"></div>
+            <p>Carregando...</p>
+        </div>
+
+        <!-- Messages -->
+        <div class="message hidden" id="message"></div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
